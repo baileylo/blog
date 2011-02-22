@@ -1,25 +1,18 @@
-<h1>Listing posts</h1>
+<h1>Rails Blog Tutorial</h1>
 
-<table>
-  <tr>
-    <th>Body</th>
-    <th>Title</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.body %></td>
-    <td><%= post.title %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<ul id="blog-list">
+  <% @posts.each do |post| %>
+  <li>
+    <h2 class="post-title"><%= link_to post.title, post %></h2>
+    <div class="post-body">
+      <%= post.body %>
+    </div>
+  </li>
+  <% end %>
+</ul>
 
 <br />
 
+<% if user_signed_in? %>
 <%= link_to 'New Post', new_post_path %>
+<% end %>

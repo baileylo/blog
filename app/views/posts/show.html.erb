@@ -1,15 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Body:</b>
+
+<h1><%= @post.title %></h1>
+<p class="meta">
+  Posted by: <%= @post.user.email %> On <%= @post.created_at %>
+</p>
+<div id="post-body">
   <%= @post.body %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+</div id="post-body">
 
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+
+<% if user_signed_in? && @post.user == current_user %>
+<%= link_to 'Edit', edit_post_path(@post) %>
+<% end %>
 <%= link_to 'Back', posts_path %>
