@@ -2,7 +2,7 @@
   <ul id="blog-list">
     <% @posts.each do |post| %>
     <li>
-      <span class="post-date"><%= post.created_at%></span>
+      <span class="post-date"><%= l post.created_at %></span>
       <h2 class="post-title"><%= link_to post.title, post %></h2>
       <div class="post-body">
         <%= post.body %>

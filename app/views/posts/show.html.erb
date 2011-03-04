@@ -3,7 +3,7 @@
 
 <h1 id="page-title"><%= @post.title %></h1>
 <p class="meta">
-  Posted by: <a href='#'><%= @post.user.email %></a> On <%= @post.created_at %>
+  Posted by: <a href='#'><%= @post.user.email %></a> On <%= l @post.created_at %>
 </p>
 <div id="post-body">
   <%= @post.body %>
