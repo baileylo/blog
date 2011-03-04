@@ -8,17 +8,25 @@
 </head>
 <body>
 
-<div class="user-auth-nav" style="float:right">
-  <% if user_signed_in? %>
-  <%= link_to('Edit registration', edit_user_registration_path) %> | 
-  <%= link_to('Logout', destroy_user_session_path) %> 
-  <% else %>
-  <%= link_to('Login', new_user_session_path)  %> | 
-  <%= link_to('Register', new_user_registration_path)  %>
-  <% end %>
+<div id="content-wrapper">
+  <div id="user-auth-nav">
+    <% if user_signed_in? %>
+    <%= link_to 'New Post', new_post_path %> | 
+    <%= link_to('Profile', edit_user_registration_path) %> | 
+    <%= link_to('Logout', destroy_user_session_path) %> 
+    <% else %>
+    <%= link_to('Login', new_user_session_path)  %> | 
+    <%= link_to('Register', new_user_registration_path)  %>
+    <% end %>
+  </div>
+  <h1 id="application-title">Century Blog</h1>
+  <ul id="top-nav">
+    <li><%= link_to "Home", root_path %></li>
+    <li>About</li>
+  </ul>
+  <div id="content">
+    <%= yield %>
+  </div>
 </div>
-
-<%= yield %>
-
 </body>
 </html>
