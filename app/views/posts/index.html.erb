@@ -4,6 +4,7 @@
     <li>
       <span class="post-date"><%= l post.created_at %></span>
       <h2 class="post-title"><%= link_to post.title, post %></h2>
+      <h4 class="author">By <%= post.user.username%></h4>
       <div class="post-body">
         <%= post.body %>
       </div>
