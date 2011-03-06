@@ -6,3 +6,7 @@ en:
   time:
     formats:
       default: "%A, %B %d %Y"
+  activerecord:
+    attributes:
+      user:  
+        login: "Username or email"

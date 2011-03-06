@@ -62,3 +62,7 @@ textarea, input {
   line-height: 15pt;
   font-size: 10pt;
 }
+
+#error_explanation li{
+  color: black;
+}

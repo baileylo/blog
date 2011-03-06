@@ -10,5 +10,14 @@ class User < ActiveRecord::Base
   has_many :posts
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessor :login
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :login
+
+  protected
+    def self.find_for_database_authentication(conditions)
+      puts "-------------------------------------------"
+      puts "find_for_database_authentication was called"
+      login = conditions.delete(:login)
+      where(conditions).where(["username = :value OR email = :value", { :value => login }]).first
+    end
 end
